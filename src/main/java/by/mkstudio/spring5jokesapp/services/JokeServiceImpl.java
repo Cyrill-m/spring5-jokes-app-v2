@@ -4,18 +4,24 @@
  * and open the template in the editor.
  */
 package by.mkstudio.spring5jokesapp.services;
-//import by.mkstudio.norris.chuck.ChuckNorrisQuotes;
+import guru.springframework.norris.chuck.ChuckNorrisQuotes;
+import org.springframework.stereotype.Service;
 /**
  *
  * @author user
  */
+@Service
 public class JokeServiceImpl implements JokeService {
     
-    //private final ChuckNorrisQuotes chuckNorrisQuotes;
+    private final ChuckNorrisQuotes chuckNorrisQuotes;
 
+    public JokeServiceImpl() {
+        this.chuckNorrisQuotes = new ChuckNorrisQuotes();
+    }
+        
     @Override
     public String getJoke() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return chuckNorrisQuotes.getRandomQuote();
     }
     
 }
